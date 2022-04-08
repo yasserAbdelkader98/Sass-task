@@ -1,0 +1,52 @@
+@mixin cols($cols,$size,$width){
+    @media screen and (min-width: $width){
+        @for $i from 1 to 13 {
+            .col#{$size}-#{$i}{
+                width: #{100/$cols*$i*1%};
+            }
+        }
+        
+    }
+}
+
+@include cols(12,"" ,0 );
+@include cols(12,"-sm" ,576px );
+@include cols(12,"-md" ,768px );
+@include cols(12,"-lg" ,992px );
+@include cols(12,"-xl" ,1200px );
+
+@media screen and ( max-width:992px) {
+    
+    
+    .container div{
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        width: 25%;
+    }
+    .container div section:nth-child(2){
+        border: none;
+        
+    }
+    img{
+        border: 3px solid black;
+    }
+    
+    }
+    @media screen and ( max-width:768px) {
+        .container div{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+        .container div section:nth-child(2){
+            border: none;
+        }
+        img{
+            border: 3px solid black;
+        }
+        nav ul{
+            display: flex;
+            flex-direction: column;
+        }
+    }
